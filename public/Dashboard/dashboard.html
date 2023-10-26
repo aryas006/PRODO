@@ -22,6 +22,19 @@
 
     <!-- auth -->
     <script type="module">
+            document.addEventListener("DOMContentLoaded", function () {
+                const greetingText = document.getElementById("greeting-text");
+                const currentTime = new Date().getHours();
+
+                if (currentTime >= 5 && currentTime < 12) {
+                    greetingText.textContent = "🌅☕🌞 - Rise and shine, it's a beautiful morning";
+                } else if (currentTime >= 12 && currentTime < 18) {
+                    greetingText.textContent = "🍵☕🍰 - Time for a relaxing afternoon tea.";
+                } else {
+                    greetingText.textContent = "🌃🌌🌠 - Embrace the beauty of the night sky.";
+                }
+            });
+
         // Import functions
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js";
@@ -37,6 +50,37 @@
             appId: "1:97747219553:web:fed6cae0333b3eedc02620",
             measurementId: "G-LT7LDF5MRT"
         };
+            document.addEventListener("DOMContentLoaded", function () {
+                const quoteText = document.getElementById("quote-text");
+
+                // Array of motivational quotes
+                const quotes = [
+                    "Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful. - Albert Schweitzer",
+                    "The only way to do great work is to love what you do. - Steve Jobs",
+                    "Success is walking from failure to failure with no loss of enthusiasm. - Winston Churchill",
+                    "In the middle of every difficulty lies opportunity. - Albert Einstein",
+                    "Don't watch the clock; do what it does. Keep going. - Sam Levenson",
+                    "The future depends on what you do today. - Mahatma Gandhi",
+                    "The only thing standing between you and your goal is the story you keep telling yourself as to why you can't achieve it. - Jordan Belfort",
+                    "You are never too old to set another goal or to dream a new dream. - C.S. Lewis",
+                    "Hardships often prepare ordinary people for an extraordinary destiny. - C.S. Lewis",
+                    "The only place where success comes before work is in the dictionary. - Vidal Sassoon",
+                    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
+                    "The road to success and the road to failure are almost exactly the same. - Colin R. Davis",
+                    "I find that the harder I work, the more luck I seem to have. - Thomas Jefferson",
+                    "Believe you can and you're halfway there. - Theodore Roosevelt",
+                    "Your time is limited, don't waste it living someone else's life. - Steve Jobs",
+                    "Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful. - Albert Schweitzer"
+                ];
+
+
+                // Generate a random quote
+                const randomIndex = Math.floor(Math.random() * quotes.length);
+                const randomQuote = quotes[randomIndex];
+
+                // Display the random quote
+                quoteText.textContent = randomQuote;
+            });
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
@@ -97,71 +141,50 @@
 </head>
 
 <body>
-    <div class="header">
-        <a href="../NewTab/newtab.html">
-            <div class="logo_box">
-                <img src="../Images/logo_icon.png">
-                <h1 id="web_app_name">PRODO</h1>
-            </div>
-        </a>
-        <div class="menu_bar">
-            <h3 id="menu_dashboard">Dashboard</h3>
-            <a href="../Calendar/calendar.html">
-                <h3 id="menu_calendar">Calendar</h3>
-            </a>
-            <a href="../ToDo/todo.html">
-                <h3 id="menu_todo">Kanban</h3>
-            </a>
-            <a href="../Pomodoro/Pomodoro.html">
-                <h3 id="menu_study">Pomodoro</h3>
-            </a>
-            <a href="../Widgets/widgets.html">
-                <h3 id="menu_widgets">Pricing</h3>
-            </a>
-            <a href="../Notes/notes.html">
-                <h3 id="menu_notes">Notes</h3>
-            </a>
-        </div>
-
-        <!-- user card -->
-        <div id="userCard" class="card bg-light"
-            style="display: none; position: absolute; right: 10%; top: 20px; text-align: center; padding: 5px; height: 40px;">
-            <div id="userIcon">
-                <i style="font-size: 24px; color: rgb(85,208,156);" class='fas fa-user-astronaut'></i>
-                <span style="font-size: 16px;" id="userInfoEmail"></span>
-            </div>
-
-        </div>
-
-        <!--logout button-->
+    <div class="nav">
+        <a>Prodo</a>
         <div id="logoutButton" style="display: none; position: absolute; right: 4%; top: 20px;">
             <button onclick="" class="btn btn-primary">Logout</button>
         </div>
     </div>
-
-    <div class="content_pane">
-        <div class="left_box">
-            <img src="multitask.jpg" class="page_image">
+    
+    <div class="main-div">
+        <div class="welcome-div">
+            <div class="greeting-container">
+                <h1 id="greeting-text">Greetings</h1>
+            </div>
+            </div>
+            <div class="welcome-div quote">
+                <div class="quote-container">
+                    <p id="quote-text">Motivational Quote</p>
+                </div>
+                </div>
+                </div>
         </div>
+    </div>
+
+    
+
 
         <div class="middle_box">
+
             <table style="width: 65%;">
                 <tr>
                     <th>
                     <td>
-                        <a href="../Calendar/calendar.html"> <img src="content images/calendar.jpg"
+                        <a href="../Calendar/calendar.html"> <img src="content images/Cal.png"
                                 class="content_image">
-                            <p> Calendar </p>
+
                         </a>
                     </td>
                     <td>
-                        <a href="../ToDo/todo.html"> <img src="content images/todo.jpg" class="content_image">
-                            <p> Kanban </p>
+                        <a href="../ToDo/todo.html"> <img src="content images/todo.png" class="content_image">
+
                         </a>
                     </td>
                     <td>
-                        <a href="../Tasks/tasks.html"><img src="content images/reminders.jpg" class="content_image">
-                            <p>About Us</p>
+                        <a href="../Tasks/tasks.html"><img src="content images/About.png" class="content_image">
+
                         </a>
                     </td>
                     </th>
@@ -169,18 +192,18 @@
                 <tr>
                     <th>
                     <td>
-                        <a href="../Pomodoro/Pomodoro.html"><img src="content images/pomodoro.jpg" class="content_image">
-                            <p> Pomodoro </p>
+                        <a href="../Pomodoro/Pomodoro.html"><img src="content images/pomo.png" class="content_image">
+
                         </a>
                     </td>
                     <td>
-                        <a href="../Widgets/widgets.html"><img src="content images/widgets.jpg" class="content_image">
-                            <p> Pricing </p>
+                        <a href="../Widgets/widgets.html"><img src="content images/pricing.png" class="content_image">
+
                         </a>
                     </td>
                     <td>
-                        <a href="../Notes/notes.html"><img src="content images/notes.jpg" class="content_image">
-                            <p> Notes </p>
+                        <a href="../Notes/notes.html"><img src="content images/note.png" class="content_image">
+
                         </a>
                     </td>
                     </th>
@@ -194,7 +217,7 @@
         -->
 
             <!-- alert info modal -->
-            <div class="modal fade" id="alertInfoModal" tabindex="-1" role="dialog"
+            <!-- <div class="modal fade" id="alertInfoModal" tabindex="-1" role="dialog"
                 aria-labelledby="alertInfoModalTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -217,7 +240,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> -->
         <!-- BootStrap & JQuery Scripts -->
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

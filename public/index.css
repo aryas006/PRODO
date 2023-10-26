@@ -1,5 +1,6 @@
 
 .bg-image {
+
     background-image: url(./Dashboard/productivity.jpg);
     background-size: cover;
     background-position: top;
@@ -85,6 +86,7 @@ a:hover {
 
 body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
+  
 }
 
 
